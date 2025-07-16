@@ -3,25 +3,28 @@ class Solution
   public:
 	vector<int> twoSum(vector<int> &nums, int target)
 	{
+		unordered_map<int,int> m;
 		vector<int> r;
-		r=sort(nums.begin(), nums.end());
-		int *s = &nums[0];
-		int *e = &nums[nums.size() - 1];
+		for (int i=0; i<nums.size(); i++)
+		{
+			m.insert({nums[i],i});
+		}
+		int *s=&nums[0];
+		int *e=&nums[nums.size()-1];
 		while (1)
 		{
-			if (s[0] + e[0] == target)
+			if (s[0]+e[0]==target)
 			{
-				r.push_back();
-				r.push_back();
+				r.push_back(m[s[0]],m[e[0]]);
 				return r;
 			}
-			else if (s[0] + e[0] < target)
+			else if (s[0]+e[0]<target)
 			{
-				s = &s[1];
+				s=&s[1];
 			}
 			else
 			{
-				e = &e[-1];
+				e=&e[-1];
 			}
 		}
 	}
