@@ -15,7 +15,8 @@ class Solution
 		{
 			if (s[0]+e[0]==target)
 			{
-				r.push_back(m[s[0]],m[e[0]]);
+				r.push_back(m[s[0]]);
+				r.push_back(m[e[0]]);
 				return r;
 			}
 			else if (s[0]+e[0]<target)
